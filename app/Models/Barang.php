@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Suplier;
 use App\Models\kategori;
+use App\Models\pembeli;
+use App\Models\pembelian;
+use App\Models\pemjualan;
+
 
 class Barang extends Model
 {
@@ -16,7 +20,22 @@ class Barang extends Model
     protected function suplier(){
         return $this->belongsTo(Suplier::class);
     }
+
     protected function kategori(){
+        return $this->belongsTo(Kategori::class);
+    }
+    
+
+    protected function pembeli(){
+        return $this->belongsTo(Kategori::class);
+    }
+
+
+    protected function pembelian(){
+        return $this->belongsTo(Kategori::class);
+    }
+
+    protected function penjualan(){
         return $this->belongsTo(Kategori::class);
     }
 }

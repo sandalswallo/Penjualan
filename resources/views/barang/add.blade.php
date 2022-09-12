@@ -15,7 +15,7 @@
         <div class="card-body">
             <form action="{{route('barang.store')}}" method="POST">
                 @csrf
-                @method('PUT')
+                
 
                 <div class="row">
                     <div class="col-lg-6">
@@ -24,7 +24,7 @@
                             <input type="text" name ="nama" class="form-control" value="{{old('nama')}}" @error('nama') is invalid @enderror>
                                @error('nama') 
                                <div class="text-danger">
-                                {{$massage}}
+                                {{$message}}
                                </div>
                             @enderror
                         </div>
@@ -36,7 +36,7 @@
                     <input type="text" name ="harga" class="form-control" value="{{old('harga')}}" @error('harga') is invalid @enderror>
                     @error('harga') 
                     <div class="text-danger">
-                     {{$massage}}
+                     {{$message}}
                     </div>
                  @enderror
                     </div>
@@ -50,7 +50,7 @@
                             <input type="number" name ="stok" class="form-control" value="{{old('stok')}}" @error('stok') is invalid @enderror>
                     @error('stok') 
                     <div class="text-danger">
-                     {{$massage}}
+                     {{$message}}
                     </div>
                  @enderror
                         </div>

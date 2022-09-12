@@ -10,9 +10,10 @@
     <div class="card-title">
       <h5>Data Suplier</h5>
 
-      <button type="button" class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa fa-plus"></i></button>
+      <a class="btn btn-success btn-sm float-end"href="{{route('suplier.create')}}"><i class="fa fa-plus"></i></a>
     </div>
   </div>
+
 
   <div class="card-body">
     <table class="table table-striped ">
@@ -27,16 +28,18 @@
       </thead>
 
       <tbody>
+        @foreach ($suplier as $item)
         <tr>
-          <td>1</td>
-          <td>Mediatek</td>
-          <td>031-343412</td>
-          <td>Jl. Raya Gubeng No. 17</td>
+          <td>{{$loop->iteration}}</td>
+          <td>{{$item->nama}}</td>
+          <td>{{$item->telepon}}</td>
+          <td>{{$item->alamat}}</td>
           <td>
-            <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i> </a>
-            <a href="#" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i> </a>
+            <a href="/suplier/{{$item->id}}/edit" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i> </a>
+            <a href="/suplier/{{$item->id}}/hapus" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i> </a>
           </td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
@@ -51,11 +54,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+       yyy
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
       </div>
     </div>
   </div>
