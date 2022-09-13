@@ -14,7 +14,8 @@ class PembelianController extends Controller
      */
     public function index()
     {
-        //
+        $pembelian = Pembelian::all();
+        return view('pembelian.index',compact('pembelian'));
     }
 
     /**
@@ -24,7 +25,8 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        //
+        $pembelian = pembelian::all();
+      return view('pembelian.add',compact('pembelian'));
     }
 
     /**
@@ -35,7 +37,17 @@ class PembelianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'barang_id'=> 'required|numeric',
+            'tanggal'=> 'required|numeric',
+            'jumlah'=> 'required|numeric|min:1',
+            'harga'=> 'required|numeric',
+            'barang'=> 'required|max:255',
+             
+             ]);
+     
+             $pembelian = Pembelian::create($request->all());
+             return redirect ('pembelian');
     }
 
     /**
@@ -55,9 +67,10 @@ class PembelianController extends Controller
      * @param  \App\Models\Pembelian  $pembelian
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembelian $pembelian)
+    public function edit($id)
     {
-        //
+        $pembelian = Pembelian::find($id);
+        return view('pembelian.edit', compact('pembelian'));
     }
 
     /**
@@ -69,7 +82,24 @@ class PembelianController extends Controller
      */
     public function update(Request $request, Pembelian $pembelian)
     {
-        //
+        $validate = $request->validate([
+            'barang_id'=> 'required',
+            'tanggal'=> 'required|numeric',
+            'jumlah'=> 'required|numeric|min:0',
+            'harga'=> 'required|numeric',
+            'barang' => 'required|max:255',
+             
+             ]);
+     
+             $pembelian->update([
+                'barang_id' => $request -> barang_id,
+                'tanggal' => $request -> tanggal,
+                'jumlah' => $request -> jumlah,
+                'harga' => $request -> harga,
+                'barang' => $request -> barang,
+                
+             ]);
+             return redirect('pembelian');
     }
 
     /**
@@ -78,8 +108,11 @@ class PembelianController extends Controller
      * @param  \App\Models\Pembelian  $pembelian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembelian $pembelian)
+    public function destroy($id)
     {
-        //
+        $pembelian = Pembelian::find($id);
+        $pembelian->delete();
+
+        return redirect('pembelian');
     }
 }

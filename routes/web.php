@@ -26,13 +26,13 @@ Route::get('/kategori/edit/{id}',[KategoriController::class, 'edit']);
 
 //route suplier
 Route::resource('/suplier',SuplierController::class);
-Route::get('/suplier/hapus/{id}',[SuplierController::class, 'destroy']);
-Route::get('/suplier/edit/{id}',[SuplierController::class, 'edit']);
+Route::get('/suplier/{id}/hapus',[SuplierController::class, 'destroy']);
+Route::get('/suplier/edit{id}',[SuplierController::class, 'edit']);
 
 //route pembeli
 Route::resource('/pembeli',PembeliController::class);
-Route::get('/pembeli/hapus/{id}',[PembeliController::class, 'destroy']);
-Route::get('/pembeli/edit/{id}',[PembeliController::class, 'edit']);
+Route::get('/pembeli/{id}/hapus', [PembeliController::class, 'destroy']);
+Route::get('/pembeli/edit/{id}', [PembeliController::class, 'edit']);
 
 //route pembelian
 Route::resource('/pembelian',PembelianController::class);

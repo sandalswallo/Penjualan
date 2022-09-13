@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Suplier;
 use App\Models\kategori;
-use App\Models\pembeli;
+use App\Models\Pembeli;
 use App\Models\pembelian;
 use App\Models\pemjualan;
 
