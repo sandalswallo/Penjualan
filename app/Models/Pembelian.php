@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Pembelian extends Model
 {
     use HasFactory;
-    protected $table ='pembelian';
-    protected $guarded =[];
+    protected $table = 'pembelian';
 
-    protected function pembelian(){
-        return $this->belongsToMany(Pembelian::class);
+    protected $guarded = [];
+
+    public function barang(){
+        return $this->belongsTo(Barang::class);
     }
 }

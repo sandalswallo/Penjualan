@@ -8,7 +8,7 @@
 <div class="card mt-3">
   <div class="card-header">
     <div class="card-title">
-      <h5>Data Kategori</h5>
+      <h5><i class="fa-solid fa-snowflake"></i> Data Kategori</h5>
 
       <button type="button" class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa fa-plus"></i></button>
     </div>

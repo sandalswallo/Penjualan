@@ -7,12 +7,11 @@ use App\Http\Controllers\{
     SuplierController,
     PembeliController,
     PembelianController,
-    PenjualanController
+    PenjualanController,
+    DashboardController
 };
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 //route barang
 Route::resource('/barang',BarangController::class);
@@ -36,12 +35,12 @@ Route::get('/pembeli/edit/{id}', [PembeliController::class, 'edit']);
 
 //route pembelian
 Route::resource('/pembelian',PembelianController::class);
-Route::get('/pembelian/hapus/{id}',[PembelianController::class, 'destroy']);
+Route::get('/pembelian/{id}/hapus',[PembelianController::class, 'destroy']);
 Route::get('/pembelian/edit/{id}',[PembelianController::class, 'edit']);
 
 //route penjualan
 Route::resource('/penjualan',PenjualanController::class);
-Route::get('/penjualan/hapus/{id}',[PenjualanController::class, 'destroy']);
+Route::get('/penjualan/{id}/hapus',[PenjualanController::class, 'destroy']);
 Route::get('/penjualan/edit/{id}',[PenjualanController::class, 'edit']);
 
 

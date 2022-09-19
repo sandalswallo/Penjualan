@@ -8,7 +8,7 @@
 <div class="card mt-3">
   <div class="card-header">
     <div class="card-title">
-      <h5>Data Pembeli</h5>
+      <h5><i class="fa-solid fa-cable-car"></i> Data Pembeli</h5>
 
       <a class="btn btn-success btn-sm float-end"href="{{route('pembeli.create')}}"><i class="fa fa-plus"></i></a>
     </div>

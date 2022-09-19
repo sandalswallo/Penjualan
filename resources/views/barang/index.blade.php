@@ -8,7 +8,7 @@
 <div class="card mt-3">
   <div class="card-header">
     <div class="card-title">
-      <h5>Data Barang</h5>
+      <h5><i class="fa-solid fa-truck-fast"></i> Data Barang</h5>
 
       <a class="btn btn-success btn-sm float-end"href="{{route('barang.create')}}"><i class="fa fa-plus"></i></a>
     </div>
@@ -35,8 +35,8 @@
           <td>{{$item->nama}}</td>
           <td>{{$item->harga}}</td>
           <td>{{$item->stok}}</td>
-          <td>{{$item->suplier->nama}}</td>
-          <td>{{$item->kategori->nama}}</td>
+          <td>{{! empty ($item->suplier->nama) ? $item->suplier->nama : ''}}</td>
+          <td>{{! empty ($item->kategori->nama) ? $item->kategori->nama : ''}}</td>
           <td>
             <a href="/barang/{{$item->id}}/edit" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i> </a>
             <a href="/barang/{{$item->id}}/hapus" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i> </a>
